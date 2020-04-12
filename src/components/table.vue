@@ -8,6 +8,7 @@
                     <th>LastNmae</th>
                     <th>Email</th>
                     <th>Code</th>
+                    <th>Action</th>
                 </tr>
             </thead>
         <tbody>
@@ -17,10 +18,13 @@
                 <td>{{ item.LastName }}</td>
                 <td>{{ item['E-Mail'] }}</td>
                 <td>{{ item.Code }}</td>
+                <td>
+                    <button @click="onRemove(item.id)">Xóa</button>
+                    <button @click="onSua(item)">Sửa</button>
+                </td>
             </tr>
         </tbody>
         </table>
-        <button @click="truyenqua">EEEEE</button>
     </div>
 </template>
 <script>
@@ -32,6 +36,12 @@ export default {
     methods : {
         truyenqua () {
             this.$emit('naruto', 123)
+        },
+        onRemove (id) {
+            this.$emit('ID', id)
+        },
+        onSua (item) {
+            this.$emit('item',item)
         }
     }
 }
